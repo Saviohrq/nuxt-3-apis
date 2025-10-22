@@ -17,7 +17,7 @@ const {
     pending, 
     error, 
     refresh,
- } = await useFetch('https://pokeapi.co/api/v2/pokemon/charmander', {
+ } = await useLazyFetch('https://pokeapi.co/api/v2/pokemon/charmander', {
     method: "GET",
     headers: {
         "Content-Type": "application/json"
