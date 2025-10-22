@@ -1,0 +1,21 @@
+<template>
+    <h1>Use fetch</h1>
+
+    <button @click="refresh">Recarregar Dados</button>
+
+    <div v-if="pending">Carregando...</div>
+    <div v-else-if="error">Erro: {{ error.message }}</div>
+
+    <pre v-else>
+        {{ charmander }}
+    </pre>
+</template>
+
+<script setup>
+const { data: charmander, pending, error, refresh } = await useFetch('https://pokeapi.co/api/v2/pokemon/charmander', {
+    method: "GET",
+    headers: {
+        "Content-Type": "application/json"
+    }
+});
+</script>
