@@ -12,10 +12,20 @@
 </template>
 
 <script setup>
-const { data: charmander, pending, error, refresh } = await useFetch('https://pokeapi.co/api/v2/pokemon/charmander', {
+const { 
+    data: charmander, 
+    pending, 
+    error, 
+    refresh,
+ } = await useFetch('https://pokeapi.co/api/v2/pokemon/charmander', {
     method: "GET",
     headers: {
         "Content-Type": "application/json"
-    }
+    },
+    transform: (data) => ({
+        id: data.id,
+        name: data.name,
+        image: data.sprites.front_default
+    }),
 });
 </script>
